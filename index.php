@@ -153,7 +153,7 @@ if(isset($_POST['captcha'])) {
 <!-- Footer -->
 <footer class="bg-body-tertiary text-center text-lg-start">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-        © 2024 Eloquéncia
+        © 2024 Eloquéncia | Fait avec ❤️ et hébergé en France
     </div>
 </footer>
 </body>
