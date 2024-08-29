@@ -1,3 +1,29 @@
+<?php
+include('config.php');
+session_start();
+
+if(isset($_POST['captcha'])) {
+    if ($_POST['captcha'] == $_SESSION['captcha']) {
+        $req = $db->prepare('INSERT INTO contact (name, email, message) VALUES (:name, :email, :message)');
+        $req->execute(array(
+            'name' => htmlspecialchars($_POST['name']),
+            'email' => htmlspecialchars($_POST['email']),
+            'message' => htmlspecialchars($_POST['message'])
+        ));
+        $error = [
+            'type' => 'success',
+            'message' => 'Votre message a bien été envoyé'
+        ];
+    } else {
+        $error = [
+                'type' => 'danger',
+                'message' => 'Le captcha est incorrect'
+        ];
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -35,8 +61,8 @@
                 <h1 class="display-1 text-center">Eloquéncia</h1>
                 <p class="lead text-center">La plateforme de cours en ligne pour apprendre à parler en public</p>
                 <div class="d-flex justify-content-center">
-                    <a href="#" class="btn btn-primary btn-lg">Découvrir</a>
-                    <a href="#" class="btn btn-secondary btn-lg">Adhérer</a>
+                    <a href="#about" class="btn btn-primary btn-lg">Découvrir</a>
+                    <a href="https://www.helloasso.com/associations/eloquencia/adhesions/adhesion" class="btn btn-secondary btn-lg">Adhérer</a>
                 </div>
             </div>
         </div>
@@ -88,6 +114,34 @@
                     <p class="card-text">Présentation de Jeanne</p>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+<hr class="my-4">
+<div id="contact" class="container">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="display-4 text-center">Contact</h2>
+            <form method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nom</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Adresse e-mail</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control" id="message" name="message"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="captcha" class="form-label">Captcha</label>
+                    <img src="Captcha/captcha.php" alt="Captcha">
+                    <input type="text" name="captcha" id="captcha" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>
         </div>
     </div>
 </div>
