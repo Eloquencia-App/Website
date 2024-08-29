@@ -46,8 +46,8 @@ if(isset($_POST['captcha'])) {
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav">
                 <a class="nav-link" href="#">Accueil</a>
-                <a class="nav-link" href="#">À propos</a>
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="#about">À propos</a>
+                <a class="nav-link" href="#contact">Contact</a>
                 <a class="nav-link" href="#">Connexion</a>
             </div>
         </div>
@@ -151,7 +151,7 @@ if(isset($_POST['captcha'])) {
 </div>
 <hr class="my-4">
 <!-- Footer -->
-<footer class="bg-body-tertiary text-center text-lg-start">
+<footer class="bg-body-tertiary text-center text-lg-start footer">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2024 Eloquéncia | Fait avec ❤️ et hébergé en France
     </div>
