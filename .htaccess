@@ -3,8 +3,3 @@ RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [L]
 
 # disable directory browsing
 Options All -Indexes
-
-# disable access to /assets directory
-RedirectMatch 403 /assets
-RedirectMatch 403 /css
-RedirectMatch 403 /js
