@@ -53,7 +53,6 @@ if(isset($_POST['captcha'])) {
         </div>
     </div>
 </nav>
-
 <header>
     <div class="container">
         <div class="row">
@@ -68,6 +67,11 @@ if(isset($_POST['captcha'])) {
         </div>
     </div>
 </header>
+<?php if(isset($error)) { ?>
+    <div class="alert alert-<?= $error['type'] ?> text-center" role="alert">
+        <?= $error['message'] ?>
+    </div>
+<?php } ?>
 <hr class="my-4">
 <div id="about" class="container">
     <div class="row">
