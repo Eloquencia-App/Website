@@ -74,7 +74,7 @@ if (isset($_POST['submit'])) {
                 <a class="nav-link" href="./">Accueil</a>
                 <a class="nav-link" href="./#about">À propos</a>
                 <a class="nav-link" href="./#contact">Contact</a>
-                <a class="nav-link" href="discount.php">Réduction</a>
+                <a class="nav-link" href="discount">Réduction</a>
                 <a class="nav-link" href="#">Connexion</a>
             </div>
         </div>
