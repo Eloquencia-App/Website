@@ -29,7 +29,17 @@ if(isset($_POST['captcha'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eloquéncia</title>
+    <meta name="description" content="Eloquéncia est une association loi 1901 visant à promouvoir l'éloquence et l'art oratoire">
+    <meta name="keywords" content="éloquence, oratoire, association, loi 1901, parler en public, discours, formation, cours en ligne">
+    <meta name="author" content="Eloquéncia">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="language" content="fr">
+    <meta property="og:site_name" content="Eloquéncia">
+    <meta property="og:site" content="https://eloquencia.org">
+    <meta property="og:title" content="Accueil">
+    <meta property="og:description" content="Eloquéncia est une association loi 1901 visant à promouvoir l'éloquence et l'art oratoire">
+    <title>Accueil - Eloquéncia</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/bootstrap.js"></script>
 </head>
