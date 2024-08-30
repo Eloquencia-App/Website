@@ -1,49 +1,31 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 include('config.php');
 session_start();
 
-
 if (isset($_POST['submit'])) {
-    $password = htmlspecialchars($_POST['password']);
-    $passwordConfirmation = htmlspecialchars($_POST['passwordConfirmation']);
-    if ($password == $passwordConfirmation) {
-        $req = $db->prepare('UPDATE members SET password = :password WHERE ID = :id');
+    if (!isset($_POST['email'])) {
+        $error = [
+            'type' => 'danger',
+            'message' => 'Veuillez renseigner une adresse mail',
+            'fatal' => false
+        ];
+    } elseif ($_FILES['file']['size'] < 5000000) {
+        $req = $db->prepare('INSERT INTO discounts (email, proof) VALUES (:email, :file)');
         $req->execute(array(
-            'password' => hash('sha256', htmlspecialchars($password)),
-            'id' => htmlspecialchars($_POST['id'])
-        ));
-        $req = $db->prepare('UPDATE members SET registrationToken = NULL WHERE ID = :id');
-        $req->execute(array(
-            'id' => htmlspecialchars($_POST['id'])
+            'email' => htmlspecialchars($_POST['email']),
+            'file' => file_get_contents($_FILES['file']['tmp_name'])
         ));
         $error = [
             'type' => 'success',
-            'fatal' => true,
-            'message' => 'Votre mot de passe a bien été modifié'
+            'message' => 'Votre demande a bien été envoyée',
+            'fatal' => true
         ];
 
     } else {
         $error = [
-            'type' => 'warning',
-            'fatal' => false,
-            'message' => 'Les mots de passe ne correspondent pas'
-        ];
-    }
-} elseif (isset($_GET['token'])) {
-    $req = $db->prepare("SELECT ID FROM members WHERE registrationToken = :token");
-    $req->execute(array(
-        'token' => $_GET['token']
-    ));
-    $user = $req->fetch();
-    if (!$user) {
-        $error = [
             'type' => 'danger',
-            'message' => 'Le token est invalide',
-            'fatal' => true
+            'message' => 'Le fichier est trop volumineux',
+            'fatal' => false
         ];
     }
 }
@@ -100,18 +82,19 @@ if (isset($_POST['submit'])) {
     <?php } else {?>
     <div class="card">
         <div class="card-body">
-            <h2 class="display-4 text-center">Créez votre mot de passe</h2>
-            <form method="post">
+            <h2 class="display-4 text-center">Demander une réduction</h2>
+            <p class="lead text-center">Vous êtes étudiant ou âgé de moins de 18 ans ? Demandez une réduction sur votre adhésion à l'association !</p>
+            <form method="post" enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label for="password" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" name="password">
+                    <label for="email" class="form-label">Adresse mail</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
                 </div>
                 <div class="mb-3">
-                    <label for="passwordConfirmation" class="form-label">Confirmation du mot de passe</label>
-                    <input type="password" class="form-control" id="passwordConfirmation" name="passwordConfirmation">
+                    <label for="file" class="form-label">Justificatif d'identité ou certificat de scolarité</label>
+                    <input type="file" class="form-control" id="file" name="file" required accept="image/png, image/jpeg, application/pdf">
                 </div>
-                <input type="hidden" name="id" value="<?= $user['ID'] ?>">
-                <button type="submit" class="btn btn-primary" name="submit">Envoyer</button>
+                <p class="text-muted">En soumettant ce formulaire, vous acceptez que vos données soient utilisées pour traiter votre demande de réduction. Une fois la demande traitée, vos données seront supprimées.</p>
+                <button type="submit" class="btn btn-success" name="submit">Envoyer</button>
             </form>
         </div>
     </div>
@@ -124,22 +107,5 @@ if (isset($_POST['submit'])) {
         © 2024 Eloquéncia | Fait avec ❤️ et hébergé en France
     </div>
 </footer>
-<?php if(isset($error) && !$error['fatal']) { ?>
-<script>
-    const password = document.getElementById("password")
-        , confirm_password = document.getElementById("passwordConfirmation");
-
-    function validatePassword(){
-        if(password.value !== confirm_password.value) {
-            confirm_password.setCustomValidity("Les mots de passe ne correspondent pas");
-        } else {
-            confirm_password.setCustomValidity('');
-        }
-    }
-
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
-</script>
-<?php } ?>
 </body>
 </html>
