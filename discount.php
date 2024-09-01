@@ -2,6 +2,10 @@
 include('config.php');
 session_start();
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (isset($_POST['submit'])) {
     if (!isset($_POST['email'])) {
         $error = [
@@ -14,7 +18,7 @@ if (isset($_POST['submit'])) {
         $req->execute(array(
             'name' => htmlspecialchars($_POST['name']),
             'email' => htmlspecialchars($_POST['email']),
-            'file' => file_get_contents($_FILES['file']['tmp_name'])
+            'file' => file_get_contents($_FILES['file']['tmp_name']),
         ));
         $error = [
             'type' => 'success',
@@ -106,7 +110,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="mb-3">
                     <label for="file" class="form-label">Justificatif d'identité ou certificat de scolarité</label>
-                    <input type="file" class="form-control" id="file" name="file" required accept="image/png, image/jpeg, application/pdf">
+                    <input type="file" class="form-control" id="file" name="file" required accept="image/png, image/jpeg">
                 </div>
                 <p class="text-muted">En soumettant ce formulaire, vous acceptez que vos données soient utilisées pour traiter votre demande de réduction. Une fois la demande traitée, vos données seront supprimées.</p>
                 <button type="submit" class="btn btn-success" name="submit">Envoyer</button>
