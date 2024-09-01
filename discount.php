@@ -10,8 +10,9 @@ if (isset($_POST['submit'])) {
             'fatal' => false
         ];
     } elseif ($_FILES['file']['size'] < 5000000) {
-        $req = $db->prepare('INSERT INTO discounts (email, proof) VALUES (:email, :file)');
+        $req = $db->prepare('INSERT INTO discounts (name, email, proof) VALUES (:name, :email, :file)');
         $req->execute(array(
+            'name' => htmlspecialchars($_POST['name']),
             'email' => htmlspecialchars($_POST['email']),
             'file' => file_get_contents($_FILES['file']['tmp_name'])
         ));
@@ -93,8 +94,12 @@ if (isset($_POST['submit'])) {
     <div class="card">
         <div class="card-body">
             <h2 class="display-4 text-center">Demander une réduction</h2>
-            <p class="lead text-center">Vous êtes étudiant ou âgé de moins de 18 ans ? Demandez une réduction sur votre adhésion à l'association !</p>
+            <p class="lead text-center">Vous êtes un(e) étudiant(e) ou âgé(e) de moins de 18 ans ? Demandez une réduction sur votre adhésion à l'association !</p>
             <form method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nom et prénom</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Adresse mail</label>
                     <input type="email" class="form-control" id="email" name="email" required>
