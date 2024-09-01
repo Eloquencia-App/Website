@@ -7,31 +7,53 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 if (isset($_POST['submit'])) {
-    if (!isset($_POST['email'])) {
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    if(false === $ext = array_search(
+            $finfo->file($_FILES['file']['tmp_name']),
+            array(
+                'jpg' => 'image/jpeg',
+                'png' => 'image/png',
+            ),
+            true
+        )) {
         $error = [
             'type' => 'danger',
-            'message' => 'Veuillez renseigner une adresse mail',
+            'message' => 'Le fichier doit être une image',
             'fatal' => false
         ];
-    } elseif ($_FILES['file']['size'] < 5000000) {
-        $req = $db->prepare('INSERT INTO discounts (name, email, proof) VALUES (:name, :email, :file)');
-        $req->execute(array(
-            'name' => htmlspecialchars($_POST['name']),
-            'email' => htmlspecialchars($_POST['email']),
-            'file' => file_get_contents($_FILES['file']['tmp_name']),
-        ));
-        $error = [
-            'type' => 'success',
-            'message' => 'Votre demande a bien été envoyée',
-            'fatal' => true
-        ];
-
     } else {
-        $error = [
-            'type' => 'danger',
-            'message' => 'Le fichier est trop volumineux',
-            'fatal' => false
-        ];
+        if (!isset($_POST['name'])) {
+            $error = [
+                'type' => 'danger',
+                'message' => 'Veuillez renseigner votre nom et prénom',
+                'fatal' => false
+            ];
+        } elseif (!isset($_POST['email'])) {
+            $error = [
+                'type' => 'danger',
+                'message' => 'Veuillez renseigner une adresse mail',
+                'fatal' => false
+            ];
+        } elseif ($_FILES['file']['size'] < 5000000) {
+            $req = $db->prepare('INSERT INTO discounts (name, email, proof) VALUES (:name, :email, :file)');
+            $req->execute(array(
+                'name' => htmlspecialchars($_POST['name']),
+                'email' => htmlspecialchars($_POST['email']),
+                'file' => file_get_contents($_FILES['file']['tmp_name']),
+            ));
+            $error = [
+                'type' => 'success',
+                'message' => 'Votre demande a bien été envoyée',
+                'fatal' => true
+            ];
+
+        } else {
+            $error = [
+                'type' => 'danger',
+                'message' => 'Le fichier est trop volumineux',
+                'fatal' => false
+            ];
+        }
     }
 }
 
@@ -110,7 +132,8 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="mb-3">
                     <label for="file" class="form-label">Justificatif d'identité ou certificat de scolarité</label>
-                    <input type="file" class="form-control" id="file" name="file" required accept="image/png, image/jpeg">
+                    <input type="file" class="form-control" id="file" name="file" required accept="image/png, image/jpeg" alt="">
+                    <p class="text-muted">Le fichier doit être au format PNG ou JPEG et ne doit pas dépasser 5 Mo</p>
                 </div>
                 <p class="text-muted">En soumettant ce formulaire, vous acceptez que vos données soient utilisées pour traiter votre demande de réduction. Une fois la demande traitée, vos données seront supprimées.</p>
                 <button type="submit" class="btn btn-success" name="submit">Envoyer</button>
