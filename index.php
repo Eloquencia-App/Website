@@ -161,6 +161,16 @@ if(isset($_POST['captcha'])) {
     </div>
 </div>
 <hr class="my-4">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="display-4 text-center">Mentions légales</h2>
+            <p class="lead text-center">Pour consulter les mentions légales, <a href="legal">cliquez ici</a>
+            </p>
+        </div>
+    </div>
+</div>
+<hr class="my-4">
 <!-- Footer -->
 <footer class="bg-body-tertiary text-center text-lg-start footer">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
