@@ -93,46 +93,6 @@ if(isset($_POST['captcha'])) {
     </div>
 </div>
 <hr class="my-4">
-<div id="team" class="container">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="display-4 text-center">Notre équipe</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-4">
-            <div class="card">
-                <img src="assets/members/1.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted text-center">Président</h6>
-                    <h5 class="card-title text-center">Marouan JLASSI</h5>
-                    <p class="card-text">Présentation de Marouan</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card">
-                <img src="assets/members/2.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted text-center">Vice-Président</h6>
-                    <h5 class="card-title text-center">Jean Dupont</h5>
-                    <p class="card-text">Présentation de Jean</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card">
-                <img src="assets/members/3.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted text-center">Trésorière</h6>
-                    <h5 class="card-title text-center">Jeanne Dupond</h5>
-                    <p class="card-text">Présentation de Jeanne</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<hr class="my-4">
 <div id="contact" class="container">
     <div class="card">
         <div class="card-body">
