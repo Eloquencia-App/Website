@@ -88,9 +88,9 @@ if(isset($_POST['captcha'])) {
 <div id="album">
     <div class="album py-5">
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 d-flex flex-row">
                 <div class="col">
-                    <div class="card shadow-sm">
+                    <div class="card shadow-sm h-100">
                         <img src="assets/vignette_eloquence.png" alt="Vignette éloquence" width="100%" height="225">
                         <div class="card-body">
                             <p class="card-text">L'éloquence est un art oratoire qui permet de valoriser la prise de parole en public par des techniques et autres.</p>
@@ -98,18 +98,21 @@ if(isset($_POST['captcha'])) {
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    <div class="card shadow-sm h-100">
+                        <img src="assets/vignette_avantages.png" alt="Vignette avantages" width="100%" height="225">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">En tant qu'adhérents, accédez à des leçons, la gratuité de nos événements, et bien d'autres encore.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge text-bg-warning">Adhérents</span>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                    <div class="card shadow-sm h-100">
+                        <img src="assets/vignette_eloquencia.png" alt="Vignette Eloquéncia" width="100%" height="225">
                         <div class="card-body">
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text">Eloquéncia à pour but de valoriser l'art oratoire dans le milieu local ainsi qu'aux élèves de collèges et lycées</p>
                         </div>
                     </div>
                 </div>
@@ -166,7 +169,7 @@ if(isset($_POST['captcha'])) {
 </div>
 <hr class="my-4">
 <footer class="bg-body-tertiary text-center text-lg-start footer">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="text-center p-3">
         © 2024 Eloquéncia | Fait avec ❤️ et hébergé en France
     </div>
 </footer>
