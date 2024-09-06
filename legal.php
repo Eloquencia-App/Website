@@ -27,7 +27,7 @@ session_start();
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="./">
             <img src="assets/eloquencia_round.png" alt="Logo" width="64" height="64" class="d-inline-block">
             Eloquéncia
         </a>
@@ -40,7 +40,7 @@ session_start();
                 <a class="nav-link" href="./#about">À propos</a>
                 <a class="nav-link" href="./#contact">Contact</a>
                 <a class="nav-link" href="discount">Réduction</a>
-                <a class="nav-link" href="#">Connexion</a>
+                <a class="nav-link" href="./lms">Connexion</a>
             </div>
         </div>
     </div>
