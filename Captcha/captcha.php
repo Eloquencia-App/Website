@@ -2,7 +2,7 @@
 session_start();
 
 $_SESSION['captcha'] = mt_rand(1000,9999);
-$img = imagecreate(65,30);
+$img = imagecreate(75,40);
 $font = './assets/Destroy.ttf';
 
 $bg = imagecolorallocate($img,255,255,255);
