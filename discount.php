@@ -120,7 +120,7 @@ if (isset($_POST['submit'])) {
 
 <hr class="my-4">
 <div id="contact" class="container">
-    <?php if(isset($error) && $error['fatal']) { ?>
+    <?php if(isset($error)) { ?>
         <div class="alert alert-<?= $error['type'] ?> text-center" role="alert">
             <?= $error['message'] ?>
         </div>
@@ -158,7 +158,7 @@ if (isset($_POST['submit'])) {
 <hr class="my-4">
 <!-- Footer -->
 <footer class="bg-body-tertiary text-center text-lg-start footer fixed-bottom">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    <div class="text-center p-3">
         © 2024 Eloquéncia | Fait avec ❤️ et hébergé en France
     </div>
 </footer>
