@@ -66,13 +66,14 @@ if(isset($_POST['captcha'])) {
 </nav>
 <header>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="display-1 text-center">Eloquéncia</h1>
-                <p class="lead text-center">La plateforme de cours en ligne pour apprendre à parler en public</p>
-                <div class="d-flex justify-content-center">
-                    <a href="#about" class="btn btn-primary btn-lg">Découvrir</a>
-                    <a href="https://www.helloasso.com/associations/eloquencia/adhesions/adhesion" class="btn btn-secondary btn-lg">Adhérer</a>
+        <div class="px-4 py-5 my-5 text-center">
+            <img class="d-block mx-auto mb-4" src="assets/eloquencia_round.png" alt="" width="100" height="100">
+            <h1 class="display-5 fw-bold text-body-emphasis">Eloquéncia</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead mb-4">La plateforme de cours en ligne pour apprendre à parler en public</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                    <a href="#about" class="btn btn-outline-secondary btn-lg">Découvrir</a>
+                    <a href="https://www.helloasso.com/associations/eloquencia/adhesions/adhesion" class="btn btn-warning btn-lg" style="">Adhérer</a>
                 </div>
             </div>
         </div>
@@ -83,6 +84,39 @@ if(isset($_POST['captcha'])) {
         <?= $error['message'] ?>
     </div>
 <?php } ?>
+<hr class="my-4">
+<div id="album">
+    <div class="album py-5">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        <div class="card-body">
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <hr class="my-4">
 <div id="about" class="container">
     <div class="row">
@@ -131,7 +165,6 @@ if(isset($_POST['captcha'])) {
     </div>
 </div>
 <hr class="my-4">
-<!-- Footer -->
 <footer class="bg-body-tertiary text-center text-lg-start footer">
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2024 Eloquéncia | Fait avec ❤️ et hébergé en France
