@@ -16,8 +16,8 @@ if(isset($_POST['captcha'])) {
         ];
     } else {
         $error = [
-                'type' => 'danger',
-                'message' => 'Le captcha est incorrect'
+            'type' => 'danger',
+            'message' => 'Le captcha est incorrect'
         ];
     }
 }
@@ -41,6 +41,7 @@ if(isset($_POST['captcha'])) {
     <meta property="og:description" content="Eloquéncia est une association loi 1901 visant à promouvoir l'éloquence et l'art oratoire">
     <title>Accueil - Eloquéncia</title>
     <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/eloquencia.css">
     <script src="js/bootstrap.js"></script>
 </head>
 <body>
@@ -85,6 +86,31 @@ if(isset($_POST['captcha'])) {
     </div>
 <?php } ?>
 <hr class="my-4">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="assets/banniere_reduction.png" class="d-block w-100" alt="..." id="carousel-item-1">
+            <div class="carousel-caption d-none d-md-block">
+                <a href="discount" class="btn btn-warning">Profiter de la réduction</a>
+
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<hr class="my-4">
 <div id="album">
     <div class="album py-5">
         <div class="container">
@@ -125,7 +151,7 @@ if(isset($_POST['captcha'])) {
     <div class="row">
         <div class="col-12">
             <h2 class="display-4 text-center">À propos</h2>
-            <p class="lead text-center">Eloquéncia est une plateforme de cours en ligne pour apprendre à parler en public. Nous proposons des cours en ligne, des ateliers et des formations pour vous aider à devenir un orateur hors pair.</p>
+            <p class="lead text-center">Eloquéncia est une association loi 1901 visant à promouvoir l'art de l'éloquence. Elle propose une plateforme de cours en ligne pour apprendre à parler en public, des ateliers et des formations pour vous aider à devenir un orateur hors pair.</p>
         </div>
     </div>
 </div>
